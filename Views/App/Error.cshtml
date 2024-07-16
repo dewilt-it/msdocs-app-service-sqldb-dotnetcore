@@ -1,0 +1,33 @@
+@{
+    Layout = null;
+   
+    ViewData["copyrightYear"] = "2024";
+    ViewData["version"] = "version";
+    ViewData["companyName"] = "companyName";
+    ViewData["appName"] = "appName";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Error"] - LogisticsCentral</title>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div class="container body-content">        
+        <div class="dialog">
+            <div style="color: #f00">
+                <h2>@ViewData["Error"]</h2>
+                <p>@ViewData["ErrorMessage"]</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; @ViewData["copyrightYear"] - @ViewData["companyName"] - @ViewData["appName"] @ViewData["version"]</p>
+        </footer>
+    </div>
+</body>
+</html>
