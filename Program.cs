@@ -43,8 +43,15 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Todos}/{action=Index}/{id?}");
+#pragma warning disable ASP0014 // Suggest using top level route registrations
+app.UseEndpoints(endpoints => {
+    endpoints.MapControllerRoute("default", "{controller=Todos}/{action=Index}/{id?}");
+    endpoints.MapControllerRoute("app", "app/{instanceCode=}", new { controller = "App", action = "Index" });
+    //endpoints.MapControllerRoute("manager", "manager/{controller=Dashboard}/{action=Index}/{id?}");
+});
+#pragma warning restore ASP0014 // Suggest using top level route registrations
+
+
+
 
 app.Run();
